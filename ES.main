@@ -6,7 +6,7 @@ windowRunning = 1
 windowX = 600
 windowY = 1020
 
-stars = 30
+stars = 500
 starX = 10
 starY = 10
 starSize = 10
@@ -20,14 +20,10 @@ while windowRunning == 1:
         windowRunning = 0
 
     while stars > 0:
-#        starX = random.randint(0, 600)
-#        starY = random.randint(0, 600)
-        starX = starX + 1
-        starY = starY + 1
-        print (starX + 10)
-        print (starY + 10)
-        pygame.draw.rect(screen, [255,255,255], [starX, starY, starX + starSize, starY + starSize], 0)
+        starX = random.randint(0, 1020)
+        starY = random.randint(0, 600)
+        starSize = random.randint(8, 12)
+        pygame.draw.rect(screen, [255,255,255], [starX, starY, starSize, starSize], 0)
         stars = stars - 1
-        starSize = starSize - 1
 
     pygame.display.flip()
