@@ -1,17 +1,45 @@
 #! /usr/bin/env python
 import pygame
 import random
+import pygame.key
 
 windowRunning = 1
 windowX = 600
 windowY = 1020
+background = 0,0,0
+
+playerX = 300
+playerY = 300
+playerVX = 0
+playerVY = 0
+playerBaseSize = 10
 
 stars = 500
 starX = 10
 starY = 10
-starSize = 10
+starSize = 0
+starSizeMin = 5
+starSizeMax = 8
+starBightness = 0
+starBightnessMin = 150
+starBightnessMax = 255
+
 screen = pygame.display.set_mode((1020, 600))
 pygame.display.set_caption("Stars")
+
+
+def plyrVel():
+    global playerVY
+    global playerVX
+    if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
+        playerVY += float(1)
+    if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
+        playerVY += float(-1)
+
+def drawPlyr(playerX,playerY):
+    playerX += playerVX
+    playerY += playerVY
+    pygame.draw.rect(screen, [0,255,0], [playerX, playerY, playerBaseSize, playerBaseSize])
 
 
 while windowRunning == 1:
@@ -19,11 +47,31 @@ while windowRunning == 1:
     if event.type == pygame.QUIT:
         windowRunning = 0
 
-    while stars > 0:
-        starX = random.randint(0, 1020)
-        starY = random.randint(0, 600)
-        starSize = random.randint(8, 12)
-        pygame.draw.rect(screen, [255,255,255], [starX, starY, starSize, starSize], 0)
-        stars = stars - 1
+    screen.fill(background)
+
+#    while stars > 0:
+#        starX = random.randint(0, 1020)
+#        starY = random.randint(0, 600)
+#        starSize = random.randint(starSizeMin, starSizeMax)
+#        starBightness = random.randint(starBightnessMin, starBightnessMax)
+
+#        pygame.draw.rect(screen, [starBightness, starBightness, starBightness], [starX, starY, starSize, starSize], 0)
+#        stars = stars - 1
+
+#    drawPlyr(100,100)
+#    plyrVel()
+
+    playerX += playerVX
+    playerY += playerVY
+
+    pygame.draw.rect(screen, [0,255,0], [playerX, playerY, playerBaseSize, playerBaseSize])
+    if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
+        playerVY -= float(0.01)
+    if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
+        playerVY -= float(-0.01)
+
+
+
+
 
     pygame.display.flip()
