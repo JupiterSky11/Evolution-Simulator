@@ -6,9 +6,10 @@ windowRunning = 1
 windowX = 600
 windowY = 1020
 
-stars = 2
+stars = 30
 starX = 10
 starY = 10
+starSize = 10
 screen = pygame.display.set_mode((1020, 600))
 pygame.display.set_caption("Stars")
 
@@ -25,8 +26,8 @@ while windowRunning == 1:
         starY = starY + 1
         print (starX + 10)
         print (starY + 10)
-        pygame.draw.rect(screen, [255,255,255], [starX,starY,starX + 10,starY + 10], 0)
+        pygame.draw.rect(screen, [255,255,255], [starX, starY, starX + starSize, starY + starSize], 0)
         stars = stars - 1
-
+        starSize = starSize - 1
 
     pygame.display.flip()
