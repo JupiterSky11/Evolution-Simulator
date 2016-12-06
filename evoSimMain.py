@@ -4,7 +4,7 @@ import pygame.key
 import random
 import creatureFeeder1
 
-player1 = creatureFeeder1.playerFunc()
+player1 = creatureFeeder1.playerClass()
 
 windowRunning = 1
 windowX = 600
@@ -45,8 +45,7 @@ while windowRunning == 1:
 #    drawPlyr(100,100)
 #    plyrVel()
 
-    player1 = creatureFeeder1.player
 
-    player1()
+    player1.playerFunc()
 
     pygame.display.flip()
