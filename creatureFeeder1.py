@@ -7,21 +7,24 @@ import evoSimMain
 
 
 
-class player1:
+class playerClass:
     """Player Class"""
-    def player(self):
-        playerX = 300
-        playerY = 300
-        playerVX = 0
-        playerVY = 0
-        playerBaseSize = 10
 
-        playerX += playerVX
-        playerY += playerVY
+    playerX = 300
+    playerY = 300
+    playerVX = 0
+    playerVY = 0
+    playerBaseSize = 10
+
+
+    def playerFunc(self):
+
+        playerClass.playerX += playerClass.playerVX
+        playerClass.playerY += playerClass.playerVY
 
         if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
-            playerVY -= float(0.01)
+            playerClass.playerVY -= float(0.01)
         if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
-            playerVY -= float(-0.01)
+            playerClass.playerVY -= float(-0.01)
 
-        pygame.draw.rect(evoSimMain.screen, [0, 255, 0], [playerX, playerY, playerBaseSize, playerBaseSize])
+        pygame.draw.rect(evoSimMain.screen, [0, 255, 0], [playerClass.playerX, playerClass.playerY, playerClass.playerBaseSize, playerClass.playerBaseSize])
