@@ -20,6 +20,8 @@ plyrVelY = 0
 plyrX = 30
 plyrY = 30
 
+facing = 0
+
 BLACK = 0,0,0
 
 
@@ -75,6 +77,31 @@ while windowRunning == 1:
 
 
 
+    if upPress == 1 and rightPress == 1:
+        facing = 1
+
+    elif rightPress == 1 and downPress == 1:
+        facing = 3
+
+    elif downPress == 1 and leftPress == 1:
+        facing = 5
+
+    elif leftPress == 1 and upPress == 1:
+        facing = 7
+
+    elif upPress == 1:
+        facing = 0
+
+    elif downPress == 1:
+        facing = 4
+
+    elif leftPress == 1:
+        facing = 6
+
+    elif rightPress == 1:
+        facing = 2
+
+
     if velReset == 1:
         plyrVelX = 0
         plyrVelY = 0
@@ -99,6 +126,7 @@ while windowRunning == 1:
     screen.fill(BLACK)
 
     pygame.draw.rect(screen, [0,255,0], [plyrX, plyrY, 10, 10])
+    pygame.draw.line(screen, [0,200,0], [plyrX, plyrY],[20, 0], 1)
 
     pygame.display.flip()
 
