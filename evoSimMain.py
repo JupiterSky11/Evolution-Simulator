@@ -4,6 +4,7 @@ import pygame.key
 import random
 import creatureFeeder1
 
+player1 = creatureFeeder1.playerFunc()
 
 windowRunning = 1
 windowX = 600
