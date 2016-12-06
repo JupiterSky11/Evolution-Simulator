@@ -1,18 +1,14 @@
 #! /usr/bin/env python
 import pygame
-import random
 import pygame.key
+import random
+import creatureFeeder1
+
 
 windowRunning = 1
 windowX = 600
 windowY = 1020
 background = 0,0,0
-
-playerX = 300
-playerY = 300
-playerVX = 0
-playerVY = 0
-playerBaseSize = 10
 
 stars = 500
 starX = 10
@@ -25,21 +21,8 @@ starBightnessMin = 150
 starBightnessMax = 255
 
 screen = pygame.display.set_mode((1020, 600))
-pygame.display.set_caption("Stars")
+pygame.display.set_caption("Evolution Simulator")
 
-
-def plyrVel():
-    global playerVY
-    global playerVX
-    if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
-        playerVY += float(1)
-    if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
-        playerVY += float(-1)
-
-def drawPlyr(playerX,playerY):
-    playerX += playerVX
-    playerY += playerVY
-    pygame.draw.rect(screen, [0,255,0], [playerX, playerY, playerBaseSize, playerBaseSize])
 
 
 while windowRunning == 1:
@@ -61,17 +44,8 @@ while windowRunning == 1:
 #    drawPlyr(100,100)
 #    plyrVel()
 
-    playerX += playerVX
-    playerY += playerVY
+    player1 = creatureFeeder1.player
 
-    pygame.draw.rect(screen, [0,255,0], [playerX, playerY, playerBaseSize, playerBaseSize])
-    if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
-        playerVY -= float(0.01)
-    if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
-        playerVY -= float(-0.01)
-
-
-
-
+    player1()
 
     pygame.display.flip()
