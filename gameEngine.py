@@ -75,8 +75,8 @@ while windowRunning == 1:
     if event.type == pygame.KEYUP and event.key == pygame.K_r:
         velReset = 0
 
-
-
+    
+    #Facing
     if upPress == 1 and rightPress == 1:
         facing = 1
 
@@ -101,7 +101,8 @@ while windowRunning == 1:
     elif rightPress == 1:
         facing = 2
 
-
+    
+    #Velocity
     if velReset == 1:
         plyrVelX = 0
         plyrVelY = 0
@@ -119,14 +120,17 @@ while windowRunning == 1:
         plyrVelX += 0.0005
 
 
-
+    #Posision
     plyrX += plyrVelX
     plyrY += plyrVelY
-
+    
+    #Refreshing the screen
     screen.fill(BLACK)
 
+    #Drawing player
     pygame.draw.rect(screen, [0,255,0], [plyrX, plyrY, 10, 10])
 
+    #Drawing gun thing
     if facing == 0:
         pygame.draw.line(screen, [0,200,0], [plyrX + 4, plyrY + 5],[plyrX + 4, plyrY + -10], 2)
 
@@ -152,8 +156,7 @@ while windowRunning == 1:
         pygame.draw.line(screen, [0,200,0], [plyrX + 4, plyrY + 4],[plyrX + 20, plyrY + 4], 2)
 
 
+    #Displaying the changes
     pygame.display.flip()
-
-    print(plyrY,plyrX)
 
 
