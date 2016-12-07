@@ -126,7 +126,31 @@ while windowRunning == 1:
     screen.fill(BLACK)
 
     pygame.draw.rect(screen, [0,255,0], [plyrX, plyrY, 10, 10])
-    pygame.draw.line(screen, [0,200,0], [plyrX, plyrY],[20, 0], 1)
+
+    if facing == 0:
+        pygame.draw.line(screen, [0,200,0], [plyrX + 4, plyrY + 5],[plyrX + 4, plyrY + -10], 2)
+
+    if facing == 1:
+        pygame.draw.line(screen, [0,200,0], [plyrX + 4, plyrY + 4],[plyrX + 16, plyrY + -7], 2)
+
+    if facing == 2:
+        pygame.draw.line(screen, [0,200,0], [plyrX + 4, plyrY + 4],[plyrX + 20, plyrY + 4], 2)
+
+    if facing == 3:
+        pygame.draw.line(screen, [0,200,0], [plyrX + 4, plyrY + 4],[plyrX + 20, plyrY + 4], 2)
+
+    if facing == 4:
+        pygame.draw.line(screen, [0,200,0], [plyrX + 4, plyrY + 4],[plyrX + 20, plyrY + 4], 2)
+
+    if facing == 5:
+        pygame.draw.line(screen, [0,200,0], [plyrX + 4, plyrY + 4],[plyrX + 20, plyrY + 4], 2)
+
+    if facing == 6:
+        pygame.draw.line(screen, [0,200,0], [plyrX + 4, plyrY + 4],[plyrX + 20, plyrY + 4], 2)
+
+    if facing == 7:
+        pygame.draw.line(screen, [0,200,0], [plyrX + 4, plyrY + 4],[plyrX + 20, plyrY + 4], 2)
+
 
     pygame.display.flip()
 
