@@ -2,35 +2,33 @@
 
 class playerClass:
 
-
-
     import pygame
     import random
     import os
     import math
     import sys
 
+    plyrVelX = 0
+    plyrVelY = 0
+    plyrX = 400
+    plyrY = 400
+    facing = 0
 
+    velReset = 0
+    upPress = 0
+    downPress = 0
+    leftPress = 0
+    rightPress = 0
 
 
     def playerFunc(self):
 
         from gameEngine import screen
         from pygame import event
-        import gameEngine
+
         import pygame
 
-        plyrVelX = 0
-        plyrVelY = 0
-        plyrX = gameEngine.windowSizeX / 2
-        plyrY = gameEngine.windowSizeY / 2
-        facing = 0
 
-        velReset = 0
-        upPress = 0
-        downPress = 0
-        leftPress = 0
-        rightPress = 0
 
         event = pygame.event.poll()
 
@@ -38,111 +36,111 @@ class playerClass:
         # UP
 
         if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
-            upPress = 1
+            self.upPress = 1
         if event.type == pygame.KEYUP and event.key == pygame.K_w:
-            upPress = 0
+            self.upPress = 0
 
         # DOWN
 
         if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
-            downPress = 1
+            self.downPress = 1
         if event.type == pygame.KEYUP and event.key == pygame.K_s:
-            downPress = 0
+            self.downPress = 0
 
         # LEFT
 
         if event.type == pygame.KEYDOWN and event.key == pygame.K_a:
-            leftPress = 1
+            self.leftPress = 1
         if event.type == pygame.KEYUP and event.key == pygame.K_a:
-            leftPress = 0
+            self.leftPress = 0
 
         # RIGHT
 
         if event.type == pygame.KEYDOWN and event.key == pygame.K_d:
-            rightPress = 1
+            self.rightPress = 1
         if event.type == pygame.KEYUP and event.key == pygame.K_d:
-            rightPress = 0
+            self.rightPress = 0
 
         # STOP
 
         if event.type == pygame.KEYDOWN and event.key == pygame.K_r:
-            velReset = 1
+            self.velReset = 1
         if event.type == pygame.KEYUP and event.key == pygame.K_r:
-            velReset = 0
+            self.velReset = 0
 
         # Facing
-        if upPress == 1 and rightPress == 1:
-            facing = 1
+        if self.upPress == 1 and self.rightPress == 1:
+            self.facing = 1
 
-        elif rightPress == 1 and downPress == 1:
-            facing = 3
+        elif self.rightPress == 1 and self.downPress == 1:
+            self.facing = 3
 
-        elif downPress == 1 and leftPress == 1:
-            facing = 5
+        elif self.downPress == 1 and self.leftPress == 1:
+            self.facing = 5
 
-        elif leftPress == 1 and upPress == 1:
-            facing = 7
+        elif self.leftPress == 1 and self.upPress == 1:
+            self.facing = 7
 
-        elif upPress == 1:
-            facing = 0
+        elif self.upPress == 1:
+            self.facing = 0
 
-        elif downPress == 1:
-            facing = 4
+        elif self.downPress == 1:
+            self.facing = 4
 
-        elif leftPress == 1:
-            facing = 6
+        elif self.leftPress == 1:
+            self.facing = 6
 
-        elif rightPress == 1:
-            facing = 2
+        elif self.rightPress == 1:
+            self.facing = 2
 
         # Velocity
-        if velReset == 1:
-            plyrVelX = 0
-            plyrVelY = 0
+        if self.velReset == 1:
+            self.plyrVelX = 0
+            self.plyrVelY = 0
 
-        if upPress == 1:
-            plyrVelY -= 0.0005
+        if self.upPress == 1:
+            self.plyrVelY -= 0.0005
 
-        if downPress == 1:
-            plyrVelY += 0.0005
+        if self.downPress == 1:
+            self.plyrVelY += 0.0005
 
-        if leftPress == 1:
-            plyrVelX -= 0.0005
+        if self.leftPress == 1:
+            self.plyrVelX -= 0.0005
 
-        if rightPress == 1:
-            plyrVelX += 0.0005
+        if self.rightPress == 1:
+            self.plyrVelX += 0.0005
 
         # Posision
-        plyrX += plyrVelX
-        plyrY += plyrVelY
+            self.plyrX += self.plyrVelX
+            self.plyrY += self.plyrVelY
 
         # Drawing player
-        pygame.draw.rect(screen, [0, 255, 0], [plyrX, plyrY, 11, 11])
+        pygame.draw.rect(screen, [0, 255, 0], [self.plyrX, self.plyrY, 11, 11])
 
         #Drawing gun thing
-        if facing == 0:
-            pygame.draw.line(screen, [0,200,0], [plyrX + 5, plyrY + 5],[plyrX + 5, plyrY + -10], 1)
+        if self.facing == 0:
+            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 5, self.plyrY + -10], 1)
 
-        elif facing == 1:
-            pygame.draw.line(screen, [0,200,0], [plyrX + 5, plyrY + 5],[plyrX + 17.5, plyrY + -7.5], 1)
+        elif self.facing == 1:
+            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 17.5, self.plyrY + -7.5], 1)
 
-        elif facing == 2:
-            pygame.draw.line(screen, [0,200,0], [plyrX + 5, plyrY + 5],[plyrX + 20, plyrY + 5], 1)
+        elif self.facing == 2:
+            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 20, self.plyrY + 5], 1)
 
-        elif facing == 3:
-            pygame.draw.line(screen, [0,200,0], [plyrX + 5, plyrY + 5],[plyrX + 17.5, plyrY + 17.5], 1)
+        elif self.facing == 3:
+            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 17.5, self.plyrY + 17.5], 1)
 
-        elif facing == 4:
-            pygame.draw.line(screen, [0,200,0], [plyrX + 5, plyrY + 5],[plyrX + 5, plyrY + 20], 1)
+        elif self.facing == 4:
+            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 5, self.plyrY + 20], 1)
 
-        elif facing == 5:
-            pygame.draw.line(screen, [0,200,0], [plyrX + 5, plyrY + 5],[plyrX + -7.5, plyrY + 17.5], 1)
+        elif self.facing == 5:
+            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + -7.5, self.plyrY + 17.5], 1)
 
-        elif facing == 6:
-            pygame.draw.line(screen, [0,200,0], [plyrX + 5, plyrY + 5],[plyrX + -10, plyrY + 5], 1)
+        elif self.facing == 6:
+            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + -10, self.plyrY + 5], 1)
 
-        elif facing == 7:
-            pygame.draw.line(screen, [0,200,0], [plyrX + 5, plyrY + 5],[plyrX + -7.5, plyrY + -7.5], 1)
+        elif self.facing == 7:
+            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + -7.5, self.plyrY + -7.5], 1)
 
 
 
