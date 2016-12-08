@@ -2,6 +2,7 @@
 from gameEngine import screen
 
 import pygame
+import pygame
 import random
 import os
 import math
@@ -28,37 +29,37 @@ class playerClass:
 
         # UP
 
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
+        if pygame.event.type == pygame.KEYDOWN and pygame.event.key == pygame.K_w:
             upPress = 1
-        if event.type == pygame.KEYUP and event.key == pygame.K_w:
+        if pygame.event.type == pygame.KEYUP and pygame.event.key == pygame.K_w:
             upPress = 0
 
         # DOWN
 
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
+        if pygame.event.type == pygame.KEYDOWN and pygame.event.key == pygame.K_s:
             downPress = 1
-        if event.type == pygame.KEYUP and event.key == pygame.K_s:
+        if pygame.event.type == pygame.KEYUP and pygame.event.key == pygame.K_s:
             downPress = 0
 
         # LEFT
 
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_a:
+        if pygame.event.type == pygame.KEYDOWN and pygame.event.key == pygame.K_a:
             leftPress = 1
-        if event.type == pygame.KEYUP and event.key == pygame.K_a:
+        if pygame.event.type == pygame.KEYUP and pygame.event.key == pygame.K_a:
             leftPress = 0
 
         # RIGHT
 
-        if event.type == pygame.KEYDOWN and pygame.event.key == pygame.K_d:
+        if pygame.event.type == pygame.KEYDOWN and pygame.event.key == pygame.K_d:
             rightPress = 1
-        if event.type == pygame.KEYUP and event.key == pygame.K_d:
+        if pygame.event.type == pygame.KEYUP and pygame.event.key == pygame.K_d:
             rightPress = 0
 
         # STOP
 
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_r:
+        if pygame.event.type == pygame.KEYDOWN and pygame.event.key == pygame.K_r:
             velReset = 1
-        if event.type == pygame.KEYUP and event.key == pygame.K_r:
+        if pygame.event.type == pygame.KEYUP and pygame.event.key == pygame.K_r:
             velReset = 0
 
         # Facing
