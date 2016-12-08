@@ -1,5 +1,6 @@
-
-
+clock = 100000
+while clock >= 0:
+    clock -= 1
 
 #Hello
 import pygame
@@ -9,6 +10,7 @@ import math
 import sys
 import feeder
 
+
 windowRunning = 1
 windowSizeX = 1280
 windowSizeY = 800
@@ -16,10 +18,7 @@ windowSizeY = 800
 BLACK = 0,0,0
 
 
-clock = 100000
 
-while clock >= 0:
-    clock -= 1
 
 player = feeder.playerClass()
 
