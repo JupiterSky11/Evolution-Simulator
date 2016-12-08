@@ -1,3 +1,6 @@
+
+
+
 #Hello
 import pygame
 import random
@@ -12,7 +15,13 @@ windowSizeY = 800
 
 BLACK = 0,0,0
 
-player = feeder.playerClass
+
+clock = 100000
+
+while clock >= 0:
+    clock -= 1
+
+player = feeder.playerClass()
 
 screen = pygame.display.set_mode([windowSizeX, windowSizeY])
 pygame.display.set_caption("Movable Square")
