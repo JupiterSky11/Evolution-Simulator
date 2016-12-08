@@ -1,22 +1,24 @@
 
-from gameEngine import screen
-
-import pygame
-import pygame
-import random
-import os
-import math
-import sys
-import gameEngine
 
 class playerClass:
 
+
+
+    import pygame
+    import random
+    import os
+    import math
+    import sys
+
+
+
+
     def playerFunc(self):
-        velReset = 0
-        upPress = 0
-        downPress = 0
-        leftPress = 0
-        rightPress = 0
+
+        from gameEngine import screen
+        from pygame import event
+        import gameEngine
+        import pygame
 
         plyrVelX = 0
         plyrVelY = 0
@@ -24,42 +26,48 @@ class playerClass:
         plyrY = gameEngine.windowSizeY / 2
         facing = 0
 
+        velReset = 0
+        upPress = 0
+        downPress = 0
+        leftPress = 0
+        rightPress = 0
 
+        event = pygame.event.poll()
 
 
         # UP
 
-        if pygame.event.type == pygame.KEYDOWN and pygame.event.key == pygame.K_w:
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
             upPress = 1
-        if pygame.event.type == pygame.KEYUP and pygame.event.key == pygame.K_w:
+        if event.type == pygame.KEYUP and event.key == pygame.K_w:
             upPress = 0
 
         # DOWN
 
-        if pygame.event.type == pygame.KEYDOWN and pygame.event.key == pygame.K_s:
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
             downPress = 1
-        if pygame.event.type == pygame.KEYUP and pygame.event.key == pygame.K_s:
+        if event.type == pygame.KEYUP and event.key == pygame.K_s:
             downPress = 0
 
         # LEFT
 
-        if pygame.event.type == pygame.KEYDOWN and pygame.event.key == pygame.K_a:
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_a:
             leftPress = 1
-        if pygame.event.type == pygame.KEYUP and pygame.event.key == pygame.K_a:
+        if event.type == pygame.KEYUP and event.key == pygame.K_a:
             leftPress = 0
 
         # RIGHT
 
-        if pygame.event.type == pygame.KEYDOWN and pygame.event.key == pygame.K_d:
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_d:
             rightPress = 1
-        if pygame.event.type == pygame.KEYUP and pygame.event.key == pygame.K_d:
+        if event.type == pygame.KEYUP and event.key == pygame.K_d:
             rightPress = 0
 
         # STOP
 
-        if pygame.event.type == pygame.KEYDOWN and pygame.event.key == pygame.K_r:
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_r:
             velReset = 1
-        if pygame.event.type == pygame.KEYUP and pygame.event.key == pygame.K_r:
+        if event.type == pygame.KEYUP and event.key == pygame.K_r:
             velReset = 0
 
         # Facing
@@ -108,6 +116,9 @@ class playerClass:
         plyrX += plyrVelX
         plyrY += plyrVelY
 
+        # Drawing player
+        pygame.draw.rect(screen, [0, 255, 0], [plyrX, plyrY, 11, 11])
+
         #Drawing gun thing
         if facing == 0:
             pygame.draw.line(screen, [0,200,0], [plyrX + 5, plyrY + 5],[plyrX + 5, plyrY + -10], 1)
@@ -134,8 +145,7 @@ class playerClass:
             pygame.draw.line(screen, [0,200,0], [plyrX + 5, plyrY + 5],[plyrX + -7.5, plyrY + -7.5], 1)
 
 
-        # Drawing player
-        pygame.draw.rect(screen, [0, 255, 0], [plyrX, plyrY, 11, 11])
+
 
 
         #Displaying the changes
