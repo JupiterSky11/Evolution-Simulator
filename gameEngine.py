@@ -159,4 +159,3 @@ while windowRunning == 1:
     #Displaying the changes
     pygame.display.flip()
 
-
