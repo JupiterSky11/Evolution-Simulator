@@ -12,7 +12,7 @@ windowSizeY = 800
 
 BLACK = 0,0,0
 
-player = feeder.playerClass.playerFunc()
+player = feeder.playerClass
 
 screen = pygame.display.set_mode([windowSizeX, windowSizeY])
 pygame.display.set_caption("Movable Square")
@@ -28,7 +28,7 @@ while windowRunning == 1:
     #Refreshing the screen
     screen.fill(BLACK)
 
-    player()
+    player.playerFunc()
 
     #Displaying the changes
     pygame.display.flip()
