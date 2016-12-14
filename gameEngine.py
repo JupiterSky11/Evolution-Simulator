@@ -10,10 +10,13 @@ import math
 import sys
 import feeder
 
+import window
+from window import windowRunning
+from window import windowSizeX
+from window import windowSizeY
+from window import windowClass
 
-windowRunning = 1
-windowSizeX = 1280
-windowSizeY = 800
+clock = pygame.time.Clock()
 
 BLACK = 0,0,0
 
@@ -22,11 +25,12 @@ BLACK = 0,0,0
 
 player = feeder.playerClass()
 
-screen = pygame.display.set_mode([windowSizeX, windowSizeY])
-pygame.display.set_caption("Movable Square")
+
 
 
 while windowRunning == 1:
+
+
 
     event = pygame.event.poll()
     if event.type == pygame.QUIT:
@@ -34,9 +38,11 @@ while windowRunning == 1:
 
 
     #Refreshing the screen
-    screen.fill(BLACK)
+    windowClass.screen.fill(BLACK)
 
-    player.playerFunc()
+    player.playerKeypress()
+    player.playerVelCalc()
+    player.playerDraw()
 
     #Displaying the changes
     pygame.display.flip()
