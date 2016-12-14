@@ -21,9 +21,10 @@ class playerClass:
     rightPress = 0
 
 
-    def playerFunc(self):
 
-        from gameEngine import screen
+    def playerKeypress(self):
+
+        from window import windowClass
         from pygame import event
 
         import pygame
@@ -39,6 +40,7 @@ class playerClass:
             self.upPress = 1
         if event.type == pygame.KEYUP and event.key == pygame.K_w:
             self.upPress = 0
+            print("hello")
 
         # DOWN
 
@@ -46,6 +48,7 @@ class playerClass:
             self.downPress = 1
         if event.type == pygame.KEYUP and event.key == pygame.K_s:
             self.downPress = 0
+            print("hello")
 
         # LEFT
 
@@ -53,6 +56,7 @@ class playerClass:
             self.leftPress = 1
         if event.type == pygame.KEYUP and event.key == pygame.K_a:
             self.leftPress = 0
+            print("hello")
 
         # RIGHT
 
@@ -60,6 +64,7 @@ class playerClass:
             self.rightPress = 1
         if event.type == pygame.KEYUP and event.key == pygame.K_d:
             self.rightPress = 0
+            print("hello")
 
         # STOP
 
@@ -67,6 +72,10 @@ class playerClass:
             self.velReset = 1
         if event.type == pygame.KEYUP and event.key == pygame.K_r:
             self.velReset = 0
+
+            print("hello")
+
+    def playerVelCalc(self):
 
         # Facing
         if self.upPress == 1 and self.rightPress == 1:
@@ -114,37 +123,36 @@ class playerClass:
             self.plyrX += self.plyrVelX
             self.plyrY += self.plyrVelY
 
+    def playerDraw(self):
+
+        from window import windowClass
+        import pygame
+
         # Drawing player
-        pygame.draw.rect(screen, [0, 255, 0], [self.plyrX, self.plyrY, 11, 11])
+        pygame.draw.rect(windowClass.screen, [0, 255, 0], [self.plyrX, self.plyrY, 11, 11])
 
         #Drawing gun thing
         if self.facing == 0:
-            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 5, self.plyrY + -10], 1)
-
+            pygame.draw.line(windowClass.screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 5, self.plyrY + -10], 1)
+            pygame.display.flip()
         elif self.facing == 1:
-            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 17.5, self.plyrY + -7.5], 1)
-
+            pygame.draw.line(windowClass.screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 17.5, self.plyrY + -7.5], 1)
+            pygame.display.flip()
         elif self.facing == 2:
-            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 20, self.plyrY + 5], 1)
-
+            pygame.draw.line(windowClass.screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 20, self.plyrY + 5], 1)
+            pygame.display.flip()
         elif self.facing == 3:
-            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 17.5, self.plyrY + 17.5], 1)
-
+            pygame.draw.line(windowClass.screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 17.5, self.plyrY + 17.5], 1)
+            pygame.display.flip()
         elif self.facing == 4:
-            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 5, self.plyrY + 20], 1)
-
+            pygame.draw.line(windowClass.screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + 5, self.plyrY + 20], 1)
+            pygame.display.flip()
         elif self.facing == 5:
-            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + -7.5, self.plyrY + 17.5], 1)
-
+            pygame.draw.line(windowClass.screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + -7.5, self.plyrY + 17.5], 1)
+            pygame.display.flip()
         elif self.facing == 6:
-            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + -10, self.plyrY + 5], 1)
-
+            pygame.draw.line(windowClass.screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + -10, self.plyrY + 5], 1)
+            pygame.display.flip()
         elif self.facing == 7:
-            pygame.draw.line(screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + -7.5, self.plyrY + -7.5], 1)
-
-
-
-
-
-        #Displaying the changes
-        pygame.display.flip()
+            pygame.draw.line(windowClass.screen, [0,200,0], [self.plyrX + 5, self.plyrY + 5],[self.plyrX + -7.5, self.plyrY + -7.5], 1)
+            pygame.display.flip()
