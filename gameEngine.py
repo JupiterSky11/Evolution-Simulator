@@ -31,7 +31,6 @@ player = feeder.playerClass()
 while windowRunning == 1:
 
 
-
     event = pygame.event.poll()
     if event.type == pygame.QUIT:
         windowRunning = 0
@@ -42,6 +41,7 @@ while windowRunning == 1:
 
     player.playerKeypress()
     player.playerVelCalc()
+    player.playerCalcPos()
     player.playerDraw()
 
     #Displaying the changes
