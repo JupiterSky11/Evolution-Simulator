@@ -11,3 +11,8 @@ gameName = "Make Games Great Again"
 
 screen = pygame.display.set_mode((winWidth, winHeight))
 pygame.display.set_caption("gameName")
+
+
+while winRun == 1 :
+    pygame.init()
+    pygame.display.update()
