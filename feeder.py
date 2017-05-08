@@ -119,9 +119,11 @@ class playerClass:
         if self.rightPress == 1:
             self.plyrVelX += 0.0005
 
+    def playerCalcPos(self):
+
         # Posision
-            self.plyrX += self.plyrVelX
-            self.plyrY += self.plyrVelY
+        self.plyrX += self.plyrVelX
+        self.plyrY += self.plyrVelY
 
     def playerDraw(self):
 
