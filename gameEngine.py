@@ -13,6 +13,8 @@ screen = pygame.display.set_mode((winWidth, winHeight))
 pygame.display.set_caption("gameName")
 
 
+pygame.init()
+
+
 while winRun == 1 :
-    pygame.init()
     pygame.display.update()
